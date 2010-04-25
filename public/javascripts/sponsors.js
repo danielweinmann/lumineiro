@@ -1,8 +1,10 @@
 $(window).load(function () {
-  $('.sponsor').hover(function() {
-    $(this).attr('src', $(this).attr('src').replace('_pb', ''))
+  $('.sponsors a').hover(function() {
+    $(this).children('sponsor_pb').hide()
+    $(this).children('sponsor').show()
   }, function() {
-    $(this).attr('src', $(this).attr('src').replace('.jpg', '_pb.jpg'))
+    $(this).children('sponsor').hide()
+    $(this).children('sponsor_pb').show()
   })
 });
 
