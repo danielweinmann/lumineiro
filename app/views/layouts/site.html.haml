@@ -14,41 +14,40 @@
 
   %body.site
     #menu
-      %ul
-        - if controller.action_name == 'index'
-          %li.selected Início
-        - else
-          %li= link_to "Início", root_path
+      - if controller.action_name == 'index'
+        %span.selected Início
+      - else
+        %span= link_to "Início", root_path
 
-        - if controller.action_name == 'numbers'
-          %li.selected Números
-        - else
-          %li= link_to "Números", numbers_path
+      - if controller.action_name == 'numbers'
+        %span.selected Números
+      - else
+        %span= link_to "Números", numbers_path
 
-        - if controller.action_name == 'history'
-          %li.selected Histórico
-        - else
-          %li= link_to "Histórico", history_path
+      - if controller.action_name == 'history'
+        %span.selected Histórico
+      - else
+        %span= link_to "Histórico", history_path
 
-        - if controller.action_name == 'videos'
-          %li.selected Vídeos
-        - else
-          %li= link_to "Vídeos", videos_path
+      - if controller.action_name == 'videos'
+        %span.selected Vídeos
+      - else
+        %span= link_to "Vídeos", videos_path
 
-        - if controller.action_name == 'photos'
-          %li.selected Fotos
-        - else
-          %li= link_to "Fotos", photos_path
+      - if controller.action_name == 'photos'
+        %span.selected Fotos
+      - else
+        %span= link_to "Fotos", photos_path
 
-        - if controller.action_name == 'sponsors'
-          %li.selected Apoio cultural
-        - else
-          %li= link_to "Apoio cultural", sponsors_path
+      - if controller.action_name == 'sponsors'
+        %span.selected Apoio cultural
+      - else
+        %span= link_to "Apoio cultural", sponsors_path
 
-        - if controller.action_name == 'contact'
-          %li.selected Contato
-        - else
-          %li= link_to "Contato", contact_path
+      - if controller.action_name == 'contact'
+        %span.selected Contato
+      - else
+        %span= link_to "Contato", contact_path
     #content
       = yield
       - link_to root_path do
