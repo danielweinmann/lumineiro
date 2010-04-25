@@ -1,12 +1,11 @@
 .box.content
   %h2 Apoio cultural
-  .sponsors.hide
+  .sponsors
     - link_to "http://www.jrmalabaris.com.br/", :target => :_blank do
-      = image_tag 'jrmalabaris_pb.jpg', :class => 'sponsor', :style => "background: url(images/jrmalabaris.jpg)"
+      = image_tag 'jrmalabaris_pb.jpg', :class => 'sponsor'
     - link_to "http://www.centromeme.com.br/", :target => :_blank do
-      = image_tag 'meme_pb.jpg', :class => 'sponsor', :style => "background: url(images/meme.jpg)"
+      = image_tag 'meme_pb.jpg', :class => 'sponsor'
     - link_to "http://mailee.me/", :target => :_blank do
-      = image_tag 'mailee_pb.jpg', :class => 'sponsor', :style => "background: url(images/mailee.jpg)"
-= javascript_include_tag 'jquery.crossfade.js'
+      = image_tag 'mailee_pb.jpg', :class => 'sponsor'
 = javascript_include_tag 'sponsors'
 
