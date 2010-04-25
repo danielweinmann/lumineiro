@@ -1,0 +1,13 @@
+.box.content
+  %h2 Fotos do Lumineiro
+  #slider
+    %ul
+      - @urls.each do |url|
+        %li
+          = image_tag "loading.gif", :class => 'loading'
+          = hidden_field_tag "url", url
+%script
+  ="var total = #{@urls.size}"
+= javascript_include_tag 'easySlider1.7'
+= javascript_include_tag 'photos'
+

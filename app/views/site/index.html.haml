@@ -1,0 +1,13 @@
+.box.mailee
+  %h3 Deixe seu nome e e-mail para receber notícias do Lumineiro
+  .inputs
+    nome&nbsp;
+    = text_field_tag "name", "", :size => 14
+    &nbsp;e-mail&nbsp;
+    = text_field_tag "email", "", :size => 14
+    &nbsp;
+    = submit_tag "Enviar", :id => 'submit'
+    = image_tag 'loading.gif', :id => 'loading', :class => 'hide'
+  #flash.hide
+= javascript_include_tag 'index'
+

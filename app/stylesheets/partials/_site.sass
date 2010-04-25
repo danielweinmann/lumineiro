@@ -1,0 +1,74 @@
+@import partials/slider
+@import partials/mailee
+@import partials/menu
+@import partials/content_menu
+
+body.site
+  background: #000 url('/images/bg.jpg') no-repeat top center
+  margin: 0
+  font-size: 1em
+  line-height: 1.4em
+  font-family: GillSans, Calibri, Trebuchet, Sans, sans-serif
+  color: #fff
+  a
+    color: #fff
+  a:hover
+    color: #be0000
+  input, textarea
+    border: 1px solid #eee
+    font-size: .9em
+  input:focus, textarea:focus
+    background: #eee
+  h1, h2, h3, h4, h5
+    color: #be0000
+    font-family: Georgia, Times, 'Times New Roman', serif
+    font-style: italic
+    margin: 0 0 10px 0
+  h2
+    font-size: 1.4em
+    margin: 0 0 22px 0
+  h3
+    font-size: 1.2em
+  h4
+    color: #fff
+    font-size: 1em
+  #logo
+    position: fixed
+    bottom: 10px
+    right: 16px
+    z-index: -1
+  +mailee
+  #menu
+    +menu
+  #numbers_menu
+    +content_menu
+  #videos_menu
+    +content_menu
+  #content
+    .content
+      width: 800px
+      margin: 2em auto
+      padding: 2em
+    .contact
+      width: 532px
+      text-align: center
+      padding: 60px 20px
+      margin: 176px auto 0 auto
+      z-index: 99
+      font-size: 1.2em
+    .sponsors
+      text-align: center
+      margin: 2em 0
+      img
+        padding: 2em
+      a
+        text-decoration: none
+  .hide
+    display: none
+  .clear
+    clear: both
+  .center
+    text-align: center
+  .left
+    text-align: left
+

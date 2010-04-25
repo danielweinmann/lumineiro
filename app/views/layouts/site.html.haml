@@ -1,0 +1,56 @@
+!!!
+%html{ 'xml:lang' => 'en-US', :lang => 'pt-BR', :xmlns => 'http://www.w3.org/1999/xhtml' }
+  %head
+    %meta{ :content => 'text/html; charset=utf-8', 'http-equiv' => 'content-type' }
+    %title Lumineiro
+    = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'compiled/print.css', :media => 'print'
+    /[if IE]
+      = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+    = javascript_include_tag 'jquery-1.4.2.min'
+    = javascript_include_tag 'jquery-ui.min'
+    = javascript_include_tag 'jquery.corners.min'
+    = javascript_include_tag 'corners'
+
+  %body.site
+    #menu
+      %ul
+        - if controller.action_name == 'index'
+          %li.selected Início
+        - else
+          %li= link_to "Início", root_path
+
+        - if controller.action_name == 'numbers'
+          %li.selected Números
+        - else
+          %li= link_to "Números", numbers_path
+
+        - if controller.action_name == 'history'
+          %li.selected Histórico
+        - else
+          %li= link_to "Histórico", history_path
+
+        - if controller.action_name == 'videos'
+          %li.selected Vídeos
+        - else
+          %li= link_to "Vídeos", videos_path
+
+        - if controller.action_name == 'photos'
+          %li.selected Fotos
+        - else
+          %li= link_to "Fotos", photos_path
+
+        - if controller.action_name == 'sponsors'
+          %li.selected Apoio cultural
+        - else
+          %li= link_to "Apoio cultural", sponsors_path
+
+        - if controller.action_name == 'contact'
+          %li.selected Contato
+        - else
+          %li= link_to "Contato", contact_path
+    #content
+      = yield
+      - link_to root_path do
+        = image_tag 'logo.jpg', :id => 'logo'
+

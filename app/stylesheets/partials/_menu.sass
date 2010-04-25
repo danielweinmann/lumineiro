@@ -1,0 +1,35 @@
+=menu
+  filter: alpha(opacity=95)
+  -moz-opacity: 0.95
+  -khtml-opacity: 0.95
+  opacity: 0.95
+  width: 860px
+  margin: .5em auto
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', Sans, fantasy
+  letter-spacing: 0.18em
+  ul
+    +horizontal-list
+    li
+      padding: 0 1px
+      a
+        outline: none
+        border: none
+        text-decoration: none
+        cursor: pointer
+        white-space: nowrap
+        vertical-align: middle
+        display: -moz-inline-box
+        display: inline-block
+        overflow: visible
+        text-transform: uppercase
+        color: #be0000
+        padding: 0.4em 1.2em
+        &:hover
+          color: #de0000
+    li.selected
+      text-transform: uppercase
+      color: #555
+      display: -moz-inline-box
+      display: inline-block
+      padding: 0.4em 1.2em
+
