@@ -15,10 +15,12 @@ $('#submit').click(function() {
     $('#flash').removeClass('failure').removeClass('success')
   });
   $('#submit').attr('disabled', true)
+  $('#loading_off').hide()
   $('#loading').show()
   $.getJSON('/mailee', { name: $('#name').val(), email: $('#email').val() }, function(response) {
     $('#submit').attr('disabled', false)
     $('#loading').hide()
+    $('#loading_off').show()
     if(response.ok) {
       $('#flash').html(response.msg).addClass('success').removeClass('failure').slideDown();
     } else {

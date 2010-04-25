@@ -2,11 +2,12 @@
   %h3 Deixe seu nome e e-mail para receber notícias do Lumineiro
   .inputs
     nome&nbsp;
-    = text_field_tag "name", "", :size => 14
+    = text_field_tag "name", "", :size => 15
     &nbsp;e-mail&nbsp;
-    = text_field_tag "email", "", :size => 14
+    = text_field_tag "email", "", :size => 15
     &nbsp;
     = submit_tag "Enviar", :id => 'submit'
+    = image_tag 'loading_off.gif', :id => 'loading_off'
     = image_tag 'loading.gif', :id => 'loading', :class => 'hide'
   #flash.hide
 = javascript_include_tag 'index'
