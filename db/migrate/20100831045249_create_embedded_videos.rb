@@ -2,7 +2,7 @@ class CreateEmbeddedVideos < ActiveRecord::Migration
   def self.up
     create_table :embedded_videos do |t|
       t.string :title
-      t.string :code
+      t.text :code
       t.timestamps
     end
   end
