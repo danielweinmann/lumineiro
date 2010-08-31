@@ -1,0 +1,21 @@
+=# render :partial => 'search'
+
+-#.summary
+  = page_entries_info @histories, :entry_name => 'histórico'
+  = link_to image_tag('basic/plus_32.png'), new_history_path
+
+.clear
+
+- unless @histories.empty?
+  %table
+    %tr
+      %th Texto
+      %th
+    - @histories.each do |history|
+      %tr{ :class => zebra_cycle }
+        %td= history.text[0..100]
+        %td.buttons
+          = link_to(image_tag('basic/pencil_32.png'), edit_history_path(history))
+
+= will_paginate @histories
+

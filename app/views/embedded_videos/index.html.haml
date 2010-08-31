@@ -1,0 +1,24 @@
+= render :partial => 'search'
+
+.summary
+  = page_entries_info @embedded_videos, :entry_name => 'video'
+  = link_to image_tag('basic/plus_32.png'), new_embedded_video_path
+
+.clear
+
+- unless @embedded_videos.empty?
+  %table
+    %tr
+      %th Título
+      %th Código
+      %th
+    - @embedded_videos.each do |embedded_video|
+      %tr{ :class => zebra_cycle }
+        %td= embedded_video.title
+        %td=h embedded_video.code[0..100]
+        %td.buttons
+          = link_to(image_tag('basic/pencil_32.png'), edit_embedded_video_path(embedded_video))
+          = link_to(image_tag('basic/delete_32.png'), embedded_video, :confirm => 'Tem certeza?', :method => :delete)
+
+= will_paginate @embedded_videos
+

@@ -1,0 +1,17 @@
+.crud
+  - semantic_form_for @number do |form|
+    - form.inputs do
+      = form.input :title
+      = form.input :subtitle
+      = form.input :fact_sheet, :as => :text
+      = form.input :techniques, :as => :text
+      = form.input :target_audience
+      = form.input :duration
+      = form.input :awards, :as => :text
+      = form.input :history, :as => :text
+    - form.buttons do
+      = form.commit_button
+      %br
+      %br
+      = link_to "Voltar", :back
+

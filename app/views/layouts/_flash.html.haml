@@ -1,0 +1,6 @@
+.flash
+  - for key, msg in flash
+    %div{ :class => "#{key}_wrapper" }
+      %div{ :class => key }
+        = msg
+

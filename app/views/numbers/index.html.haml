@@ -1,0 +1,24 @@
+= render :partial => 'search'
+
+.summary
+  = page_entries_info @numbers, :entry_name => 'número'
+  = link_to image_tag('basic/plus_32.png'), new_number_path
+
+.clear
+
+- unless @numbers.empty?
+  %table
+    %tr
+      %th Título
+      %th Subtítulo
+      %th
+    - @numbers.each do |number|
+      %tr{ :class => zebra_cycle }
+        %td= number.title
+        %td= number.subtitle
+        %td.buttons
+          = link_to(image_tag('basic/pencil_32.png'), edit_number_path(number))
+          = link_to(image_tag('basic/delete_32.png'), number, :confirm => 'Tem certeza?', :method => :delete)
+
+= will_paginate @numbers
+

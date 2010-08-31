@@ -1,108 +1,42 @@
 .box.content
   #numbers_menu
-    %span#show_number_1.selected
-      %a{ :href => "numeros/1" } Tudo se Encaixa
-    %span#show_number_2
-      %a{ :href => "numeros/2" } Feeling
-  #number_1
-    %h2 Tudo se Encaixa
-    %strong Ficha técnica
-    %br
-    Concepção, atuação e figurino - Luciano Rabelo
-    %br
-    Orientação - Fabiano Rabelo e Luis Sartori
-    %br
-    Fotografia - Cisco Vasques
-    %br
-    %br
-    %strong Técnicas utilizadas
-    %br
-    Manipulação de chapéu e caixas (cigar box)
-    %br
-    Dança
-    %br
-    %br
-    %strong Público alvo
-    %br
-    Para todas as idades.
-    %br
-    %br
-    %strong Duração
-    %br
-    8min
-    %br
-    %br
-    %strong Premio
-    %br
-    2° Colocado - II Mostra Competitiva Jr. Malabaris - Circo Zanni - SP (2008)
-    %br
-    %br
-    %strong Breve histórico
-    %br
-    Incrível Show de Talentos - São Paulo - SP (2010)
-    %br
-    Circo Zanni - São Paulo - SP (2009)
-    %br
-    5° Festival Mundial De Circo do Brasil - Belo Horizonte - MG (2009)
-    %br
-    Cabaret Trixmix - São Paulo - SP (2009)
-    %br
-    Virada Cultural - São Paulo - SP (2009)
-    %br
-    1º Encontro Internacional de Palhaços - Mariana - MG (2008)
-    %br
-    Noite de Gala da 10° Convenção Brasileira de Malabares e Circo -Campinas - SP (2008)
-    %br
-    Circo no Beco - São Paulo - SP (2008)
-    %br
-    Cabaré da Semana Interplanetária de Palhaços -Belo Horizonte - MG (2008)
-    %br
-    Cabaré Valentin - Porto Alegre - RS (2008)
-    %br
-    Cabaré da 9º Convenção Brasileira de Malabarismo e Circo - Curitiba - PN (2007)
-    %br
-    Palco Aberto - Porto Alegre - RS (2007)
-    %br
-    Oktoberfest - Igrejinha - RS (2007)
-    %br
-    53ª Feira do Livro - Porto Alegre - RS (2007)
-    %br
-    %br
-  #number_2.hide
-    %h2{ :style => 'margin-bottom: 2px' } Feeling
-    %h4 Criado pela necessidade de dar vazão aos sentimentos humanos
-    %br
-    %strong Ficha técnica
-    %br
-    Concepção, atuação e figurino - Luciano Rabelo
-    %br
-    Fotografia - Gi Sanfelice
-    %br
-    %br
-    %strong Técnicas utilizadas
-    %br
-    Dança
-    %br
-    Malabarismo por contato
-    %br
-    Manipulação de chapéu
-    %br
-    %br
-    %strong Público alvo
-    %br
-    Para todas as idades
-    %br
-    %br
-    %strong Duração
-    %br
-    8 min
-    %br
-    %br
-    %strong Breve histórico
-    %br
-    Cabaret Trixmix - São Paulo - SP (2010)
-    %br
-    Incrível Show de Talentos - São Paulo - SP (2010)
+    - i = 0
+    - @numbers.each do |number|
+      - i = i + 1
+      %span{ :id => "show_number_#{i}", :class => ('selected' if i == 1) }
+        %a{ :href => "numeros/#{i}" }= number.title
+  - i = 0
+  - @numbers.each do |number|
+    - i = i + 1
+    %div{ :id => "number_#{i}", :class => ('hide' unless i == 1) }
+      %h2{ :style => ('margin-bottom: 2px' unless number.subtitle.empty?) }= number.title
+      - unless number.subtitle.empty?
+        %h4= number.subtitle
+        %br
+      - unless number.fact_sheet.empty?
+        %strong Ficha técnica
+        %p= number.fact_sheet.gsub("\n", "<br/>")
+        %br
+      - unless number.techniques.empty?
+        %strong Técnicas utilizadas
+        %p= number.techniques.gsub("\n", "<br/>")
+        %br
+      - unless number.target_audience.empty?
+        %strong Público alvo
+        %p= number.target_audience
+        %br
+      - unless number.duration.empty?
+        %strong Duração
+        %p= number.duration
+        %br
+      - unless number.awards.empty?
+        %strong Premios
+        %p= number.awards.gsub("\n", "<br/>")
+        %br
+      - unless number.history.empty?
+        %strong Breve histórico
+        %p= number.history.gsub("\n", "<br/>")
+        %br
 %script
   var selected_number = 1
   var number

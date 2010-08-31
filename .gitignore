@@ -16,4 +16,5 @@ config/database.yml
 coverage
 coverage/
 dump.rdb
+db/*.sqlite3
 

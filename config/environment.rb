@@ -11,9 +11,10 @@ Rails::Initializer.run do |config|
   config.gem 'compass', :version => '>= 0.8.17'
   config.gem 'haml', :version => '>=2.2.16'
   config.gem 'inherited_resources', :version => '1.0.1'
-  #config.gem 'formtastic', :version => '>=0.9.7'
-  #config.gem 'slim_scrooge', :version => '>=1.0.5'
+  config.gem 'formtastic', :version => '>=0.9.7'
   config.gem 'authlogic', :version => '>=2.1.3'
+  config.gem 'searchlogic', '>=2.4.11'
+  config.gem 'will_paginate', '>=2.3.12'
   config.gem 'httparty'
   config.gem 'nokogiri'
 

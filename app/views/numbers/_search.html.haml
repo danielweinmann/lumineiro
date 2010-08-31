@@ -1,0 +1,8 @@
+.search
+  - form_for @search do |f|
+    %fieldset
+      %ol
+        %li
+          = f.text_field :title_or_subtitle_like
+          = f.submit "Pesquisar"
+

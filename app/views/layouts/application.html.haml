@@ -1,0 +1,44 @@
+!!!
+%html{ 'xml:lang' => 'en-US', :lang => 'pt-BR', :xmlns => 'http://www.w3.org/1999/xhtml' }
+  %head
+    %meta{ :content => 'text/html; charset=utf-8', 'http-equiv' => 'content-type' }
+    %title Lumineiro
+    = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'compiled/print.css', :media => 'print'
+    /[if IE]
+      = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+    = javascript_include_tag 'jquery-1.4.2.min'
+    = javascript_include_tag 'jquery-ui.min'
+    = javascript_include_tag 'jquery.corners.min'
+    = javascript_include_tag 'corners'
+
+  %body.site
+    #menu
+      - if controller.controller_name == 'numbers'
+        %span.selected Repertório
+      - else
+        %span= link_to "Repertório", numbers_path
+
+      - if controller.controller_name == 'histories'
+        %span.selected Histórico
+      - else
+        %span= link_to "Histórico", histories_path
+
+      - if controller.controller_name == 'embedded_videos'
+        %span.selected Vídeos
+      - else
+        %span= link_to "Vídeos", embedded_videos_path
+
+      - if controller.controller_name == 'users'
+        %span.selected Usuários
+      - else
+        %span= link_to "Usuários", users_path
+
+      %span= link_to "Logout", logout_path
+    #content
+      .box.admin
+        = render :partial => 'layouts/flash', :locals => { :flash => flash } unless flash.empty?
+        = yield
+      - link_to root_path do
+        = image_tag 'logo.jpg', :id => 'logo'
+

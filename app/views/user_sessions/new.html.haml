@@ -1,0 +1,16 @@
+- form_for @user_session do |f|
+  - if !@user_session.errors.empty?
+    .error E-mail/senha inválidos
+  %fieldset
+    %ol
+      %li
+        = f.label "E-mail"
+        = f.text_field :email
+      %li
+        = f.label "Senha"
+        = f.password_field :password
+  %fieldset
+    %ol
+      %li
+        = f.submit "Entrar"
+

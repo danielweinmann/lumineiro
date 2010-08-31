@@ -1,0 +1,24 @@
+= render :partial => 'search'
+
+.summary
+  = page_entries_info @users, :entry_name => 'usuário'
+  = link_to image_tag('basic/plus_32.png'), new_user_path
+
+.clear
+
+- unless @users.empty?
+  %table
+    %tr
+      %th Nome
+      %th e-mail
+      %th
+    - @users.each do |user|
+      %tr{ :class => zebra_cycle }
+        %td= user.name
+        %td= user.email
+        %td.buttons
+          = link_to(image_tag('basic/pencil_32.png'), edit_user_path(user))
+          = link_to(image_tag('basic/delete_32.png'), user, :confirm => 'Tem certeza?', :method => :delete)
+
+= will_paginate @users
+

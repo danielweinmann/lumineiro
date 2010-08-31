@@ -1,0 +1,10 @@
+.crud
+  - semantic_form_for @history do |form|
+    - form.inputs do
+      = form.input :text, :as => :text
+    - form.buttons do
+      = form.commit_button
+      %br
+      %br
+      = link_to "Voltar", :back
+

@@ -20,34 +20,34 @@
         %span= link_to "Início", root_path
 
       - if controller.action_name == 'numbers'
-        %span.selected Números
+        %span.selected Repertório
       - else
-        %span= link_to "Números", numbers_path
+        %span= link_to "Repertório", site_numbers_path
 
       - if controller.action_name == 'history'
         %span.selected Histórico
       - else
-        %span= link_to "Histórico", history_path
+        %span= link_to "Histórico", site_history_path
 
       - if controller.action_name == 'videos'
         %span.selected Vídeos
       - else
-        %span= link_to "Vídeos", videos_path
+        %span= link_to "Vídeos", site_videos_path
 
       - if controller.action_name == 'photos'
         %span.selected Fotos
       - else
-        %span= link_to "Fotos", photos_path
+        %span= link_to "Fotos", site_photos_path
 
       - if controller.action_name == 'sponsors'
-        %span.selected Apoio cultural
+        %span.selected Apoio
       - else
-        %span= link_to "Apoio cultural", sponsors_path
+        %span= link_to "Apoio", site_sponsors_path
 
       - if controller.action_name == 'contact'
         %span.selected Contato
       - else
-        %span= link_to "Contato", contact_path
+        %span= link_to "Contato", site_contact_path
     #content
       = yield
       - link_to root_path do

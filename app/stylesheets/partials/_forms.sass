@@ -1,0 +1,35 @@
+.admin
+  .crud
+    width: 480px
+    margin: 3em auto
+
+  form
+    +stack-form
+    li
+      margin-top: 0.5em
+    label, .label
+      abbr
+        color= !required_color
+    input, textarea, select
+      font-family: inherit
+      font-size: inherit
+      border= 1px "solid" !input_border_color
+      &:focus
+        border= 1px "solid" !focused_border_color
+    input, textarea
+      &:focus
+        background= !focused_bg_color
+    select
+      vertical-align: bottom
+    textarea
+      height: 200px
+      width: 560px
+    textarea.big
+      width: 480px
+      height: 400px
+    input[type=submit], input[type=submit]:focus
+      background= !button_bg_color
+    .buttons
+      margin-top: 1em
+    .inline-hints
+

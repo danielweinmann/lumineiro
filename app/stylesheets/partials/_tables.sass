@@ -1,0 +1,43 @@
+!table_border_size = 1px
+
+.admin
+  table
+    +inner-table-borders(!table_border_size, !table_border_color)
+    margin: 0
+    th
+      background= !blueprint_table_header_color
+    tr.even td
+      background: inherit
+    tr.even
+      background= !blueprint_table_stripe_color
+    tr:hover
+      background-color= !table_hover_color
+      .buttons a
+        display: inline
+    td
+      height: 32px
+      padding: 0.5em
+      div
+        line-height: 1em
+    img
+      vertical-align: middle
+      margin-right: 0.5em
+    .buttons
+      text-align: right
+      width: 132px
+      a
+        display: none
+    .big
+      width: 174px
+    .icon
+      width: 32px
+      border-right: 0
+    .thumb
+      width: 120px
+      border-right: 0
+    .small
+      margin-bottom: 0.5em
+      line-height: 1em
+    .last
+      border-right: 0
+

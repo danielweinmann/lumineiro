@@ -1,24 +1,18 @@
 .box.content
   #videos_menu
-    %span#show_video_1.selected
-      %a{ :href => "videos/1" } Vídeo #1
-    %span#show_video_2
-      %a{ :href => "videos/2" } Vídeo #2
-    %span#show_video_3
-      %a{ :href => "videos/3" } Vídeo #3
-    %span#show_video_4
-      %a{ :href => "videos/4" } Vídeo #4
+    - i = 0
+    - @embedded_videos.each do |embedded_video|
+      - i = i + 1
+      %span{ :id => "show_video_#{i}", :class => ('selected' if i == 1) }
+        %a{ :href => "videos/#{i}" }= embedded_video.title
   .clear
   %br
   .center
-    #video_1
-      = '<object width="400" height="300"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=11091180&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=11091180&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="400" height="300"></embed></object>'
-    #video_2.hide
-      = '<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/vSc9bWynSzI&hl=pt_BR&fs=1&rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/vSc9bWynSzI&hl=pt_BR&fs=1&rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>'
-    #video_3.hide
-      = '<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/qK0ga13FG2o&hl=pt_BR&fs=1&rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/qK0ga13FG2o&hl=pt_BR&fs=1&rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>'
-    #video_4.hide
-      = '<object width="640" height="385"><param name="movie" value="http://www.youtube.com/v/xSLzEhP7hJQ&hl=pt_BR&fs=1&rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/xSLzEhP7hJQ&hl=pt_BR&fs=1&rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="385"></embed></object>'
+    - i = 0
+    - @embedded_videos.each do |embedded_video|
+      - i = i + 1
+      %div{ :id => "video_#{i}", :class => ('hide' unless i == 1) }
+        = embedded_video.code
 %script
   var selected_video = 1
   var video

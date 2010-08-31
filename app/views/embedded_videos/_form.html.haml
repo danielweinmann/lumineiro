@@ -1,0 +1,11 @@
+.crud
+  - semantic_form_for @embedded_video do |form|
+    - form.inputs do
+      = form.input :title
+      = form.input :code, :as => :text
+    - form.buttons do
+      = form.commit_button
+      %br
+      %br
+      = link_to "Voltar", :back
+

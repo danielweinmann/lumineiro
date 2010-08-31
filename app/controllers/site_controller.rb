@@ -46,12 +46,15 @@ class SiteController < ApplicationController
   end
 
   def numbers
+    @numbers = Number.all(:order => 'updated_at DESC')
   end
 
   def history
+    @history = History.first
   end
 
   def videos
+    @embedded_videos = EmbeddedVideo.all(:order => :title)
   end
 
   def photo
@@ -60,7 +63,7 @@ class SiteController < ApplicationController
     require 'nokogiri'
     response = HTTParty.get(params[:url])
     image_page = Nokogiri::HTML.parse(response.body)
-    image = image_page.search('.photoImgDiv img').first
+    image = image_page.search('.photo-div img').first
     response = HTTParty.get(image['src'])
     return send_data response.body, :type => 'image/jpeg', :disposition => 'inline'
 
