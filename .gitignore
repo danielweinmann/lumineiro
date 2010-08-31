@@ -17,4 +17,6 @@ coverage
 coverage/
 dump.rdb
 db/*.sqlite3
+vendor/plugins/haml/init.rb
+public/stylesheets/compiled/*.css
 
