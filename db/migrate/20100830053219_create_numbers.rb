@@ -3,12 +3,12 @@ class CreateNumbers < ActiveRecord::Migration
     create_table :numbers do |t|
       t.string :title
       t.string :subtitle
-      t.string :fact_sheet
-      t.string :techniques
+      t.text :fact_sheet
+      t.text :techniques
       t.string :target_audience
       t.string :duration
-      t.string :awards
-      t.string :history
+      t.text :awards
+      t.text :history
       t.timestamps
     end
   end
